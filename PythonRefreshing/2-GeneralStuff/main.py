@@ -93,12 +93,15 @@ print()
 
 #Loops
 print("Loops:")
-while response == "":
+"""while response == "":
     response = input("Enter something: ")
-print(f"You entered {response}.")
+print(f"You entered {response}.")"""
 
-for i in range(0,3):
-    print(i)
+for i in reversed(range(0,3)):
+    print(i, end=" ")
+print()
+for i in credit_number:
+    print(i,end="")
 
 print()
 
