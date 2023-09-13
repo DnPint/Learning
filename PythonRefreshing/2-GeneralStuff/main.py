@@ -1,5 +1,6 @@
 #Imprts
 import math
+import random
 
 #Variables
 age = 25
@@ -105,5 +106,49 @@ for i in credit_number:
 
 print()
 
+#Lists, Tuples, Sets
+print("Lists, Tuples, Sets:")
+my_list = [1,2,3,4,5]
+my_list2 = ["a","b","c","d","e"]
+print(my_list)
+print(my_list[0])
+my_set = {1,2,3,4,5} #sets are unordered and don't allow duplicates, can add and remove items
+my_tuple = (1,2,3,4,5) #tuples are ordered and allow duplicates, can't add or remove items. Tuples are faster
+print()
 
+# 2D lists
+print("2D lists:")
+my_2d_list = [[1,2,3],[4,5,6],[7,8,9]] #works with tuples and sets as well
 
+for i in my_2d_list:
+    for j in i:
+        print(j, end=" ")
+    print()
+print()
+
+#Dictionary
+print("Dictionary:")
+my_dict = {"name":"John","age":25,"online":True}
+print(my_dict.get("name")) #returns the value of the key
+my_dict.update({"name":"Jack"}) #updates the value of the key
+my_dict.update({"height":1.80}) #adds a new key and value
+print(my_dict.keys()) #returns the keys
+print(my_dict.values()) #returns the values
+
+for key in my_dict.keys():
+    print(key, end="/")
+    print(my_dict.get(key), end=" | ")
+print() 
+
+for key, value in my_dict.items():
+    print(f"{key}:{value}", end=" | ")
+print()
+print()
+
+#random numbers
+print("Random numbers:")
+print(random.random()) #returns a random float between 0 and 1
+print(random.randint(1,10)) #returns a random integer between 1 and 10
+print(random.choice(my_list)) #returns a random item from the list
+random.shuffle(my_list) #shuffles the list
+print(my_list)

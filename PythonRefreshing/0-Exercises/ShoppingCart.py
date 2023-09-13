@@ -12,9 +12,10 @@ while True:
         foods.append(food)
         prices.append(price)
 
+print()
 print("Your shopping cart:")
 for i in range(len(foods)):
-    print(f"{foods[i]}: {prices[i]}")
+    print(f"{foods[i]}: {prices[i]:02}")
     total += prices[i]
 
 print(f"Total: {total}")
