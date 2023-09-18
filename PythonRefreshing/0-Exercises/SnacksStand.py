@@ -15,7 +15,7 @@ while True:
         break
     elif choice in menu: # elif menu.get(choice) != None:
         cart.append(choice)
-        total += menu[choice]
+        total += menu[choice] # total += menu.get(choice)
         print(f"{choice} added to cart.")
     else:
         print("Sorry, we don't have that.")

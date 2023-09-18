@@ -1,6 +1,7 @@
 #Imprts
 import math
 import random
+import time
 
 #Variables
 age = 25
@@ -152,3 +153,86 @@ print(random.randint(1,10)) #returns a random integer between 1 and 10
 print(random.choice(my_list)) #returns a random item from the list
 random.shuffle(my_list) #shuffles the list
 print(my_list)
+print()
+
+#Functions
+print("Functions:")
+
+def happy_birthday(nom,age):
+    print(f"Happy birthday {nom}!")
+    print(f"You are {age} years old.")
+
+happy_birthday(name,20)
+print() 
+
+def display_invoice(username, amount, due_date):
+    print(f"Hello {username},")
+    print(f"Your invoice of ${amount:.2f} is due on {due_date}.")
+    print("Thank you for your business.")
+
+display_invoice("John", 100.00, "01/01/2022")
+print()
+
+def add(x,y,z):
+    res = x+y+z
+    return res 
+    #return x+y+z
+
+xyz = add(1,2,3)
+print(f"xyz={xyz}")
+print()
+
+#default arguments
+print("Default arguments:")
+def add(x=0,y=0,z=0):
+    res = x+y+z
+    return res
+
+xyz = add(1,2)
+print(f"xyz={xyz}")
+print()
+
+"""def count(end,start=1):
+    for i in range(start,end+1):
+        print(i)
+        time.sleep(1)
+    print("Done!")"""
+#count(5)
+
+#keyword arguments
+print("Keyword arguments:")
+def hello(greeting, title, first, last):
+    print(f"{greeting}, {title} {first} {last}.")
+    print()
+
+hello(title="Mr",first="John",greeting="Hello",last="Smith")
+print()
+
+#arbitrary arguments
+print("Arbitrary arguments:")
+def add(*args):
+    res = 0
+    for i in args:
+        res += i
+    return res
+
+print(add(1,2,3,4,5,6,7,8,9,10))
+print()
+
+#arbitrary keyword arguments
+print("Arbitrary keyword arguments:")
+def hello(**kwargs):
+    print(f"Hello {kwargs['title']} {kwargs['first']} {kwargs['last']}.")
+    for value in kwargs.values():
+        print(value)
+    print()
+
+hello(first="John",title="Mr",last="Smith")
+print()
+
+#modules
+print("Modules:")
+import FirstModule
+
+print(FirstModule.pi)
+print(FirstModule.square(5))
