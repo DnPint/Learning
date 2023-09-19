@@ -2,6 +2,8 @@
 import math
 import random
 import time
+import os
+import shutil
 
 #Variables
 age = 25
@@ -236,3 +238,151 @@ import FirstModule
 
 print(FirstModule.pi)
 print(FirstModule.square(5))
+print()
+
+#exception handling
+print("Exception handling:")
+try:
+    #result = 10/0
+    #result = 10/"pizza"
+    result = 10/2
+except ZeroDivisionError as e:
+    print("Can't divide by zero.")
+except TypeError as e:
+    print("Can't divide by a string.")
+except Exception as e:
+    print("Something went wrong.")
+else:
+    print(result)
+finally:
+    print("Always executed.")
+print()
+
+#file detection
+print("Files:")
+path = "PythonRefreshing\\4-Files"
+
+if os.path.exists(path):
+    print("Location exists.")
+    if os.path.isfile(path):
+        print("There is a file.")
+    elif os.path.isdir(path):
+        print("There is a directory.")
+else:
+    print("Location does not exist.")
+print()
+
+#file reading
+print("File reading:")
+path = "PythonRefreshing\\4-Files\\Test.txt"
+try:
+    with open(path,"r") as file:
+        print(file.read())
+except FileNotFoundError as e:
+    print("File not found.")
+except Exception as e:
+    print("Something went wrong.")
+print()
+
+#file writing
+print("File writing:")
+path = "PythonRefreshing\\4-Files\\TestAgain.txt"
+try:
+    with open(path,"a") as file:
+        file.write("Hello World!")
+        file.write("\n")
+except FileNotFoundError as e:
+    print("File not found.")
+except Exception as e:
+    print("Something went wrong.")
+#Rading changes
+try:
+    with open(path,"r") as file:
+        print(file.read())
+except FileNotFoundError as e:
+    print("File not found.")
+except Exception as e:
+    print("Something went wrong.")
+print()
+
+#Copying files with shutil
+print("Copying files:")
+#copyfile = copies the contents of the file, no appending
+#copy = copies the file and permissions
+#copy2 = copies the file and metadata
+
+path = "PythonRefreshing\\4-Files\\TestAgain.txt"
+shutil.copyfile(path,"PythonRefreshing\\4-Files\\TestAgain2.txt")
+
+try:
+    with open("PythonRefreshing\\4-Files\\TestAgain2.txt","r") as file:
+        print(file.read())
+except FileNotFoundError as e:
+    print("File not found.")
+except Exception as e:
+    print("Something went wrong.")
+print()
+
+#Move files
+print("Moving files:")
+source = "PythonRefreshing\\4-Files\\TestAgain2.txt"
+destination = "PythonRefreshing\\2-GeneralStuff\\TestAgain2.txt"
+
+try:
+    if os.path.exists(destination):
+        print("File already exists.")
+    else:
+        os.replace(source,destination)
+        #shutil.move(source,destination)
+        print("File moved.")
+except Exception as e:
+    print("Something went wrong.")
+print()
+
+#Delete files
+print("Deleting files:")
+
+try:
+    os.remove(destination)
+    #os.rmdir("PythonRefreshing\\4-Files\\TestAgain2.txt") #removes the directory
+    #shutil.rmtree("PythonRefreshing\\4-Files\\TestAgain2.txt") #removes the directory and all its contents
+    print("File deleted.")
+except FileNotFoundError as e:
+    print("File not found.")
+except Exception as e:
+    print("Something went wrong.")
+print()
+
+#Classes
+from cars import Car
+print("Classes:")
+car_1 = Car("Ford","Mustang",1969,"red")
+car_2 = Car("Porsche","911",2021,"blue")
+
+print(car_1.make+" "+car_1.model)
+car_1.drive()
+print()
+
+#Inheritance
+from Animals import Animal, Fish, Hawk, Rabbit
+print("Inheritance:")
+animal_1= Hawk()
+animal_2= Rabbit()
+animal_1.eat()
+animal_2.run()
+print()
+
+#Multilevel inheritance
+from MultyInheritance import Dog
+print("Multilevel inheritance:")
+dog_1 = Dog()
+dog_1.eat()
+dog_1.bark()
+print()
+
+#Multiple inheritance
+print("Multiple inheritance:")
+animal_1.hunt()
+animal_3 = Fish()
+animal_3.flee()
+animal_3.hunt()
