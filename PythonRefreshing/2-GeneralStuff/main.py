@@ -386,3 +386,69 @@ animal_1.hunt()
 animal_3 = Fish()
 animal_3.flee()
 animal_3.hunt()
+print()
+
+#method chaining
+print("Method chaining:")
+animal_1.eat().hunt().fly()
+print()
+
+#super method
+import Shapes
+print("Super method:")
+Square = Shapes.Square(5,5)
+cubre = Shapes.Cube(5,5,5)
+print(Square.area())
+print(cubre.volume())
+print()
+
+#walrus operator
+print("Walrus operator:")
+print(happy:=True)
+
+"""foods = list()
+while food := input("Enter a food (or 'q' to exit): "):
+    if food.lower() == "q":
+        break
+    foods.append(food)
+print(foods)"""
+print()
+
+#Assign function to variable
+print("Assign function to variable:")
+
+def hello ():
+    print("Hello!")
+
+hi = hello
+print(hello)
+print(hi)
+hi()
+
+say=print
+say("Hello World!")
+print()
+
+#Higher order functions
+print("Higher order functions:")
+
+def loud(text):
+    return text.upper()
+
+def quiet(text):
+    return text.lower()
+
+def hello(func):
+    text = func("Hello Pals")
+    print(text)
+
+hello(loud)
+hello(quiet)
+
+def divisor(x):
+    def dividend(y):
+        return y/x
+    return dividend
+
+divide = divisor(2)
+print(divide(10))
