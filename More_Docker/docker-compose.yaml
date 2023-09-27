@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  api:
+    build: ./api #where the dockerfile is located for the api project
+    container_name: api_c
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./api:/app #this is to mount the api folder to the container
+      - ./app/node_modules:/app #this is to avoid the node_modules folder to be overwritten by the volume
+  myblog:
+    build: ./myblog
+    container_name: myblog_c
+    ports:
+      - "3000:3000"
+    #these volumes won't work on windows because of the way the file system works => WSL 
+    #volumes:
+    #  - ./myblog:/app
+    # - ./myblog/node_modules:/app
+    stdin_open: true #interactive mode
+    tty: true
+
+
